@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Listview1Screen extends StatelessWidget {
+  final options = const [
+    'Metroid Dread',
+    'Metal Gear',
+    'Super Smash',
+    'Final Fantasy'
+  ];
   const Listview1Screen({Key? key}) : super(key: key);
 
   @override
@@ -11,8 +17,16 @@ class Listview1Screen extends StatelessWidget {
           centerTitle: true,
         ),
         body: ListView(
-          children: const [
-            Text('Hola Mundo'),
+          children: [
+            //Funcion flecha con spread de el arreglo con strings
+            ...options
+                .map((game) => ListTile(
+                      title: Text(game),
+                      trailing: const Icon(Icons.arrow_forward_ios_outlined),
+                    ))
+                .toList()
+
+            // title: Text('Hola Mundo'),
           ],
         ));
   }
